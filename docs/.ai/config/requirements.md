@@ -20,15 +20,15 @@
 |---|---|
 | `.venv` | 忽略虚拟环境 |
 | `info.txt` | 忽略切图产物记录文件（emoCut.py 输出） |
-| `**/bilibili超かぐや姫！` | 忽略该分类目录（注意：含全角感叹号，路径引用需引号） |
+| `index.html` | 忽略画廊生成物（generate_gallery.py 输出，本地查看用） |
 
 修改注意：`.gitignore` 不影响 update_stats.py 的文件计数（计数只看磁盘文件）。
 
 ## .nomedia.example
 
-**位置**：`.nomedia.example`，内容一行：`/storage/emulated/0/project/emo`
+**位置**：`.nomedia.example`，**当前为空文件（0 字节）**
 
-用途：Android 上把该行内容存为 `.nomedia` 文件（复制到目标目录），防止手机相册扫描 `emo/` 目录。带 `.example` 后缀的是模板，非生效文件。
+原内容为一行 Android 绝对路径 `/storage/emulated/0/project/emo`，在 2026-11-14 改名提交 `ff3e6ec` 中被清空。用途：Android 上把内容存为 `.nomedia`（复制到目标目录），防止手机相册扫描贴纸目录。带 `.example` 后缀的是模板，非生效文件；如需恢复使用，自行填入目标目录的 Android 绝对路径。
 
 ## 环境变量
 

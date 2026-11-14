@@ -1,4 +1,4 @@
-# EMO 快速开始
+# sticker-collection 快速开始
 
 ## 环境要求
 
@@ -9,7 +9,7 @@
 ## 安装步骤
 
 ```bash
-cd D:/Users/user/Pictures/EMO
+cd F:/Stickers/EMO
 
 # 切图工具需要 pillow
 pip install -r requirements.txt
@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ## 开发流程
 
 **加表情**：
-1. `emo/` 下建分类目录（或复用已有）
+1. `lib/` 下建分类目录（或复用已有）
 2. 丢图片进去（命名随意，但见 best-practices/development.md 的引号规范）
 3. 可选：本地跑 `update_stats.py` 刷新 README；push master 后 CI 会自动重算
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 ## 调试技巧
 
 - stats 脚本：改完直接跑，观察 "README updated." / "No changes in statistics" 输出判断是否生效
-- gallery：生成后浏览器打开根目录 `index.html` 检查图片路径对不对（相对路径 `emo/<cat>/<file>`）
+- gallery：生成后浏览器打开根目录 `index.html` 检查图片路径对不对（相对路径 `lib/<cat>/<file>`）
 - 忘引号报错时：路径含中文/日文/空格/全角标点，shell 加引号 `"path"`
 
 ## 常见问题

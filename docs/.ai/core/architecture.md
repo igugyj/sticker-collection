@@ -1,20 +1,20 @@
-# EMO 架构文档
+# sticker-collection 架构文档
 
 ## 架构概览
 
-纯内容仓库 + 轻量脚本层：**数据（emo/ 图片）→ stdlib 脚本 → 生成物（README 统计块 / index.html）**。无后端、无框架、无运行时依赖，CI 只做统计重算。
+纯内容仓库 + 轻量脚本层：**数据（lib/ 图片）→ stdlib 脚本 → 生成物（README 统计块 / index.html）**。无后端、无框架、无运行时依赖，CI 只做统计重算。
 
 架构原则（实测归纳）：
-- 内容与工具分离：图片只进 `emo/`，脚本只放仓库根/`scripts/`，生成物不提交（index.html 由脚本再生成）
+- 内容与工具分离：图片只进 `lib/`，脚本只放仓库根/`scripts/`，生成物不提交（index.html 由脚本再生成）
 - 脚本零依赖优先：`scripts/*.py` 均为 Python stdlib
 - 自动流程只有一条生效链路（stats），其余靠手动
 
 ## 分层与模块
 
-### 内容层 `emo/`
+### 内容层 `lib/`
 
 - 职责：持图，每子目录一分类
-- 关键文件：41 个分类目录
+- 关键文件：44 个分类目录
 - 被依赖：update_stats.py、generate_gallery.py 扫描对象
 
 ### 工具层 `emoCut.py`（根目录）
@@ -24,8 +24,8 @@
 
 ### 脚本层 `scripts/`
 
-- `update_stats.py`：扫 emo/ → 算每目录文件数 → 替换 README 的 stats 块
-- `generate_gallery.py`：扫 emo/ 图片 → 填 template.html 的 `{{ DATA }}` → 写根目录 index.html
+- `update_stats.py`：扫 lib/ → 算每目录文件数 → 替换 README 的 stats 块
+- `generate_gallery.py`：扫 lib/ 图片 → 填 template.html 的 `{{ DATA }}` → 写根目录 index.html
 
 ### CI 层 `.github/`
 
@@ -35,7 +35,7 @@
 ## 数据流
 
 ```
-emo/<cat>/图片
+lib/<cat>/图片
   ├─→ scripts/update_stats.py → README.md 的 stats_start/stats_end 块（CI 自动 + 本地手动）
   └─→ scripts/generate_gallery.py → scripts/template.html({{ DATA }}) → index.html（手动）
 emoCut.py: 大图 + rows/cols[+overlap][+keep_aspect_ratio] → <名>_split_{rows}x{cols}/ 小图 + info.txt
@@ -63,7 +63,7 @@ stats 忽略规则（update_stats.py 实测）：跳过 `.preview*` 前缀文件
 
 ## 扩展性
 
-- 新增分类：`emo/` 下建目录丢图即可，零代码改
+- 新增分类：`lib/` 下建目录丢图即可，零代码改
 - 新增脚本：放 `scripts/`，保持 stdlib-only；需要第三方依赖的放根目录（参照 emoCut.py + requirements.txt 模式）
 - 新增 workflow：必须放 `.github/workflows/`
 

@@ -12,6 +12,7 @@
 
 - 误放在 `.github/` 根而非 `.github/workflows/`，GitHub Actions 不识别该路径 → 从不运行
 - 设计意图（按文件内容）：push master / 每周一 0 点 / 手动 → 生成画廊 → peaceiris/actions-gh-pages 发布到 `gh-pages` 分支（force_orphan）
+- 线上画廊实际发布走 Cloudflare Pages（https://sticker-collection.pages.dev），与该 workflow 无关
 
 ## 规范
 

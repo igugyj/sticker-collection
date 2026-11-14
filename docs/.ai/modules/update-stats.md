@@ -2,13 +2,13 @@
 
 ## 职责
 
-扫描 `emo/` 各分类目录，统计文件数，重算并替换 README.md 中 `<!-- stats_start -->` / `<!-- stats_end -->` 之间的统计块。stdlib only。
+扫描 `lib/` 各分类目录，统计文件数，重算并替换 README.md 中 `<!-- stats_start -->` / `<!-- stats_end -->` 之间的统计块。stdlib only。
 
 ## 关键文件
 
 | 文件路径 | 作用 |
 |---|---|
-| `scripts/update_stats.py` | 脚本本体（127 行） |
+| `scripts/update_stats.py` | 脚本本体（103 行） |
 | `README.md` | 被修改目标（stats 块） |
 | `.github/workflows/update_stats.yml` | CI 自动执行（push master） |
 
@@ -21,22 +21,24 @@
 ## 数据流
 
 ```
-emo/<cat>/ 遍历 → 过滤（.preview* 前缀 + .html/.psd/.txt/.md/.url 后缀）→ 计数
+lib/<cat>/ 遍历 → 过滤（.preview* 前缀 + .html/.psd/.txt/.md/.url 后缀）→ 计数
   → 组装 stats 块 → 替换 README 首个 start 到末个 end 标记之间内容
   → 无变化则跳过（"No changes in statistics, skipping update."）
 ```
 
 边界行为（源码实测）：
-- 无 `emo/` 目录：打印跳过，不动 README
+- 无 `lib/` 目录：打印跳过，不动 README
 - README 无标记：追加 `## Infor` 段落
 - README 不存在：创建含完整 stats 块的 README
 - 多对标记：用首个开始 + 末个结束，中间全替换
 
 ## 依赖关系
 
-- 依赖：仅 stdlib（os/re/pathlib）
+- 依赖：仅 stdlib
 - 被依赖：CI workflow（python scripts/update_stats.py）
+- 注意：`LIB_ROOT = Path("lib")` 是相对路径，必须在仓库根目录下运行
 
 ## 变更记录索引
 
 - 2025-06-01：docs/.ai 初始化（本卡建立）
+- 2026-11-14：`emo/` → `lib/` 改名同步；修正行数（103）

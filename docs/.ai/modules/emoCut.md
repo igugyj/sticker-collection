@@ -8,7 +8,7 @@
 
 | 文件路径 | 作用 |
 |---|---|
-| `emoCut.py` | 工具本体（约 347 行，依赖 pillow） |
+| `emoCut.py` | 工具本体（411 行，依赖 pillow） |
 | `requirements.txt` | `pillow==12.0.0`（唯一依赖来源） |
 
 ## 使用流程（实测 grep 归纳）
@@ -27,10 +27,17 @@
 ```
 大图 + rows×cols [+overlap] [+keep_aspect_ratio]
   → 默认目录 <图片名>_split_{rows}x{cols}/（与图片同目录）
-  → 小图（tile 命名）+ info.txt（记录 rows/cols/overlap/keep_aspect_ratio 等参数）
+  → 小图 tile_{行:03d}_{列:03d}_{宽}x{高}.png（1 起始行/列 + 实际像素尺寸）
+  → info.txt（记录 rows/cols/overlap/keep_aspect_ratio/小图尺寸等参数）
 ```
 
-重叠实现：`left = max(0, j*tile_width - overlap)`、`upper = max(0, i*tile_height - overlap)`（源码 89-97 行），即每块向上下左右各扩展 overlap 像素。
+实现细节（源码实测，55-111 行）：
+
+- **切分尺寸**：`tile_width = width // cols`、`tile_height = height // rows`
+- **keep_aspect_ratio**：开启时 `tile_height = int(tile_width / (width/height))`，即按原图宽高比反推小图高（否则直接整除平分）
+- **overlap**：每块向四周扩展 overlap 像素并 clamp 到边界——`left = max(0, j*tile_width - overlap)`、`right = min(width, (j+1)*tile_width + overlap)`（行方向同理）；`cols==1` 或 `rows==1` 时该方向取整幅（无重叠效果）
+- **tile 命名**：`tile_{i+1:03d}_{j+1:03d}_{right-left}x{lower-upper}.png`（含 overlap 后的实际裁切尺寸），统一存 PNG
+- **尺寸校验**：`tile_width <= 0 or tile_height <= 0` 时提示图片太小并返回 False
 
 ## 依赖关系
 
@@ -40,5 +47,4 @@
 ## 变更记录索引
 
 - 2025-06-01：docs/.ai 初始化（本卡建立）
-
-> TODO: 待验证——tile 命名规则、keep_aspect_ratio 具体实现细节（未逐行读全，需时看源码）+ 完整交互文案
+- 2026-11-14：按源码核实行数（411）、tile 命名与宽高比/重叠实现，移除过时 TODO

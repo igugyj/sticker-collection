@@ -4,8 +4,8 @@
 
 来源：AGENTS.md + 目录实测。
 
-- 文件名大量非 ASCII（中文/日文）且带全角标点：`！？（）`、空格。shell 命令必须引号包裹，例：`python emoCut.py "emo/超かぐや姫！/图.png"`
-- Windows 与 Android 路径混用：仓库内一律相对路径 + `/`；`.nomedia.example` 里是绝对 Android 路径（仅示例）
+- 文件名大量非 ASCII（中文/日文）且带全角标点：`！？（）`、空格。shell 命令必须引号包裹，例：`python emoCut.py "lib/超かぐや姫！/图.png"`
+- Windows 与 Android 路径混用：仓库内一律相对路径 + `/`；`.nomedia.example` 当前为空文件（原为 Android 绝对路径示例）
 - 分类名唯一即可，改名会破坏 README 统计与 index.html 相对路径一致性（改后必须重跑两脚本）
 
 ## 脚本维护规范

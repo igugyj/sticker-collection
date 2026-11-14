@@ -1,8 +1,15 @@
 # 更新日志
 
-本文件记录 EMO 的所有重要变更。**新条目加在顶部**。
+本文件记录 sticker-collection 的所有重要变更。**新条目加在顶部**。
 
 ---
+
+## [2026-11-14] 文档同步重构（AGENTS.md 重建 + docs/.ai 修正）
+
+- 根目录 `AGENTS.md` 重建（原文件标注 NEED REBUILD）：`emo/` → `lib/`、补仓库/画廊地址、修正 `.gitignore` 现状
+- `docs/.ai/` 全量同步改名：`emo/` → `lib/`、项目名 EMO → sticker-collection、本地路径更新为 `F:\Stickers\EMO`
+- 清除失效事实：`.gitignore` 的 `**/bilibili超かぐや姫！`（已移除）、`.nomedia.example`（现为空文件）、`docs/ai/emojiMaker.prompt.txt`（已删除）、分类数 41 → 44、Total 1089 → 以 README stats 块为准
+- `modules/emoCut.md` 按源码核实 tile 命名与宽高比实现，移除过时 TODO；`modules/gallery.md` 同步新模板标题与 GitHub 链接
 
 ## [2026-11-14]
 

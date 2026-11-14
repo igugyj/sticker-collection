@@ -1,4 +1,4 @@
-# EMO AI 上下文文档索引
+# sticker-collection AI 上下文文档索引
 
 ## ⚠️ 必须遵守的原则（红线）
 
@@ -11,7 +11,7 @@
 
 ## 项目类型
 
-个人表情包/贴纸图库：纯内容仓库，无应用代码。表情图片在 `emo/`，辅助 Python 脚本 + GitHub Actions 维护 README 统计与静态画廊。技术栈：Python 3（stdlib + pillow）→ GitHub Actions → 静态 HTML。
+个人贴纸图库：纯内容仓库，无应用代码。贴纸图片在 `lib/`，辅助 Python 脚本 + GitHub Actions 维护 README 统计与静态画廊。仓库 https://github.com/igugyj/sticker-collection，发布地址 https://sticker-collection.pages.dev。技术栈：Python 3（stdlib + pillow）→ GitHub Actions → 静态 HTML。
 
 ## 文档结构（按优先级从高到低）
 
@@ -33,7 +33,7 @@
 
 | 文档路径 | 优先级 | 内容描述 |
 |---|---|---|
-| [modules/emo-library.md](./modules/emo-library.md) | 4 | `emo/` 内容结构、命名、忽略规则 |
+| [modules/emo-library.md](./modules/emo-library.md) | 4 | `lib/` 内容结构、命名、忽略规则 |
 | [modules/emoCut.md](./modules/emoCut.md) | 4 | 切图工具交互流程与产物 |
 | [modules/update-stats.md](./modules/update-stats.md) | 4 | README 统计块重算逻辑 |
 | [modules/gallery.md](./modules/gallery.md) | 4 | 静态画廊生成 |
@@ -70,10 +70,9 @@
 
 | 路径 | 用途 |
 |---|---|
-| `emo/<category>/` | 表情库，每子目录一分类，主内容 |
+| `lib/<category>/` | 贴纸库，每子目录一分类，主内容 |
 | `emoCut.py` | 交互式图片切割工具（pillow） |
 | `scripts/update_stats.py` | 重算 README 统计块 |
 | `scripts/generate_gallery.py` + `scripts/template.html` | 生成根目录 `index.html` 画廊 |
 | `.github/workflows/update_stats.yml` | push master 自动更新统计 |
 | `.github/deploy-gallery.yml` | 画廊部署（**误放位置，不生效**） |
-| `docs/ai/emojiMaker.prompt.txt` | 表情制作 prompt（与协议文档无关，勿混） |
