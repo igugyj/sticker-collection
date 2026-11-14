@@ -42,15 +42,15 @@ git clone --depth 1 git@github.com:igugyj/sticker-collection.git # SSH
 
 |  |  |  |  |  |
 |---|---|---|---|---|
-| 14 (7) | ai (24) | broifall (6) | card (4) | cat (39) |
-| classicyellowemoji (11) | custom (4) | dog (12) | doro (104) | ds-whale-girl (17) |
-| duck (3) | Erina (29) | fakeHuman (24) | fakeJoke (10) | FX_jlm (3) |
-| games (2) | GI-VODYANITSA (18) | haku (27) | honorOfKing (12) | http (21) |
-| lovely (87) | lu (16) | manosaba_Emma (20) | manosaba_Shirley (24) | mi2 (119) |
-| mid_pic_ym (9) | MiDramatic (23) | Milltina (16) | mujika (70) | other (109) |
-| Pandas (88) | Penguin (13) | Pochi (14) | programing (34) | Rokkā (3) |
-| sbti (27) | Shirley (27) | stardust (8) | text (53) | TomAndJerry (15) |
-| UseCautiously (7) | vrchat-meme (30) | win11_tan (17) | 超かぐや姫！ (9) |  |
+| 14 (7) | Erina (29) | FX_jlm (3) | GI-VODYANITSA (18) | MiDramatic (23) |
+| Milltina (16) | Pandas (88) | Penguin (13) | Pochi (14) | Rokkā (3) |
+| Shirley (27) | TomAndJerry (15) | UseCautiously (7) | ai (24) | broifall (6) |
+| card (4) | cat (39) | classicyellowemoji (11) | custom (4) | dog (12) |
+| doro (104) | ds-whale-girl (17) | duck (3) | fakeHuman (24) | fakeJoke (10) |
+| games (2) | haku (27) | honorOfKing (12) | http (21) | lovely (87) |
+| lu (16) | manosaba_Emma (20) | manosaba_Shirley (24) | mi2 (119) | mid_pic_ym (9) |
+| mujika (70) | other (109) | programing (34) | sbti (27) | stardust (8) |
+| text (53) | vrchat-meme (30) | win11_tan (17) | 超かぐや姫！ (9) |  |
 
 </details>
 <!-- stats_end -->
