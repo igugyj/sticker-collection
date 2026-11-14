@@ -1,5 +1,7 @@
 # AGENTS.md
 
+## NEED REBUILD!!! [PERSON EDITED]
+
 Personal emoticon/sticker library. The actual content is image files under `emo/`; there is no application code to run.
 
 ## Structure

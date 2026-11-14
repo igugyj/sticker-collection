@@ -5,7 +5,7 @@ import os
 import re
 from pathlib import Path
 
-EMO_DIR = Path("emo")
+LIB_ROOT = Path("lib")
 README_PATH = Path("README.md")
 START_MARK = "<!-- stats_start -->"
 END_MARK = "<!-- stats_end -->"
@@ -17,14 +17,14 @@ SUMMARY_TEXT = "Click to expand folder statistics"  # 折叠摘要文字
 ignore_extensions = ['.html', '.psd',".txt",".md",".url"]
 
 def main():
-    if not EMO_DIR.exists():
-        print("EMO directory not found, skipping.")
+    if not LIB_ROOT.exists():
+        print("lib directory not found, skipping.")
         return
 
     # 统计子文件夹及其文件数量
     folders = []
     total_files = 0
-    for item in sorted(EMO_DIR.iterdir()):
+    for item in sorted(LIB_ROOT.iterdir()):
         if item.is_dir():
             file_count = sum(
                 1
